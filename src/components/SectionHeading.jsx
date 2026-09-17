@@ -1,3 +1,13 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -6,11 +16,47 @@ export default function SectionHeading({
   centered = false,
   serifTitle = false,
 }) {
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    if (!headingRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current.children,
+        {
+          opacity: 0,
+          y: 35,
+          filter: 'blur(8px)',
+        },
+        {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 0.85,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: 'top 88%',
+            end: 'bottom 12%',
+            toggleActions: 'restart none none reverse',
+          },
+        }
+      );
+    }, headingRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className={`space-y-3 max-w-3xl ${centered ? 'mx-auto text-center' : ''}`}>
+    <div
+      ref={headingRef}
+      className={`space-y-3 max-w-3xl ${centered ? 'mx-auto text-center' : ''}`}
+    >
       {eyebrow && (
-        <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.25em] text-gold font-mono font-semibold">
-          <span className="w-1.5 h-1.5 rounded-full bg-gold"></span>
+        <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.25em] text-gold font-mono font-semibold bg-gold/10 px-3.5 py-1 rounded-full border border-gold/20 shadow-gold-glow">
+          <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
           <span>{eyebrow}</span>
         </div>
       )}

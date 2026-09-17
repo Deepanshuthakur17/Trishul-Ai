@@ -131,8 +131,12 @@ export default function Footer() {
             "Built for businesses that want to move faster."
           </div>
           <div className="flex space-x-6">
-            <span className="hover:text-warm-secondary cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-warm-secondary cursor-pointer">Terms of Service</span>
+            <Link href="/privacy" className="hover:text-warm-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-warm-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

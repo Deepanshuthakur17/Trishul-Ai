@@ -20,6 +20,7 @@ export default function MetallicButton({
     gold: 'bg-gradient-to-r from-[#F0D58A] via-[#D6AD55] to-[#C99A3D] text-obsidian border-[#F0D58A]/50 hover:shadow-[0_0_35px_rgba(214,173,85,0.4)] hover:scale-[1.02] active:scale-[0.98]',
     outline: 'bg-obsidian/80 backdrop-blur-md text-warm-white border-[#D6AD55]/40 hover:border-[#D6AD55] hover:bg-[#D6AD55] hover:text-obsidian hover:shadow-[0_0_30px_rgba(214,173,85,0.3)] hover:scale-[1.02] active:scale-[0.98]',
     dark: 'bg-obsidian-card text-warm-white border-obsidian-border hover:border-[#D6AD55]/50 hover:bg-obsidian-surface hover:scale-[1.02] active:scale-[0.98]',
+    red: 'bg-gradient-to-r from-red-950 via-red-900 to-rose-950 text-red-300 border-red-500/40 hover:from-red-600 hover:via-red-500 hover:to-rose-600 hover:text-white hover:border-red-400 hover:shadow-[0_0_35px_rgba(239,68,68,0.5)] hover:scale-[1.02] active:scale-[0.98]',
   };
 
   const content = (

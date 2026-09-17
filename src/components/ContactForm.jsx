@@ -122,8 +122,10 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Name */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-warm-white block">Full Name *</label>
+          <label htmlFor="contact-name" className="text-xs font-medium text-warm-white block">Full Name *</label>
           <input
+            id="contact-name"
+            name="name"
             type="text"
             required
             placeholder="e.g. Rahul Sharma"
@@ -135,8 +137,10 @@ export default function ContactForm() {
 
         {/* Business Name */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-warm-white block">Business Name *</label>
+          <label htmlFor="contact-business" className="text-xs font-medium text-warm-white block">Business Name *</label>
           <input
+            id="contact-business"
+            name="businessName"
             type="text"
             required
             placeholder="e.g. Apex Realty"
@@ -148,8 +152,10 @@ export default function ContactForm() {
 
         {/* Website */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-warm-white block">Website URL</label>
+          <label htmlFor="contact-website" className="text-xs font-medium text-warm-white block">Website URL</label>
           <input
+            id="contact-website"
+            name="website"
             type="url"
             placeholder="https://yourcompany.com"
             value={formData.website}
@@ -160,8 +166,10 @@ export default function ContactForm() {
 
         {/* Email */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-warm-white block">Work Email *</label>
+          <label htmlFor="contact-email" className="text-xs font-medium text-warm-white block">Work Email *</label>
           <input
+            id="contact-email"
+            name="email"
             type="email"
             required
             placeholder="rahul@company.com"
@@ -173,8 +181,10 @@ export default function ContactForm() {
 
         {/* Phone / WhatsApp */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-warm-white block">Phone / WhatsApp Number *</label>
+          <label htmlFor="contact-phone" className="text-xs font-medium text-warm-white block">Phone / WhatsApp Number *</label>
           <input
+            id="contact-phone"
+            name="phone"
             type="tel"
             required
             placeholder="+91 98765 43210"
@@ -186,8 +196,10 @@ export default function ContactForm() {
 
         {/* Industry */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-warm-white block">Industry</label>
+          <label htmlFor="contact-industry" className="text-xs font-medium text-warm-white block">Industry</label>
           <select
+            id="contact-industry"
+            name="industry"
             value={formData.industry}
             onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
             className="w-full bg-obsidian border border-obsidian-border rounded-xl px-4 py-3 text-sm text-warm-white focus:outline-none focus:border-gold transition-colors"

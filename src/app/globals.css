@@ -47,6 +47,44 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Custom Pointer Hide Default Cursor on Fine Pointer Desktop Devices */
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active *,
+  html.custom-cursor-active a,
+  html.custom-cursor-active button,
+  html.custom-cursor-active input,
+  html.custom-cursor-active textarea,
+  html.custom-cursor-active select,
+  html.custom-cursor-active [role="button"],
+  html.custom-cursor-active .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+/* ========================================== */
+/* BRAND GOLD SELECTION / COPY HIGHLIGHT TEXT */
+/* ========================================== */
+::selection {
+  background-color: rgba(214, 173, 85, 0.35);
+  color: #F5F3EE;
+}
+
+::-moz-selection {
+  background-color: rgba(214, 173, 85, 0.35);
+  color: #F5F3EE;
+}
+
+.light ::selection {
+  background-color: rgba(214, 173, 85, 0.35);
+  color: #121214;
+}
+
+.light ::-moz-selection {
+  background-color: rgba(214, 173, 85, 0.35);
+  color: #121214;
+}
+
 /* ========================================== */
 /* VIEW TRANSITION CIRCLE-BLUR ANIMATION     */
 /* ========================================== */

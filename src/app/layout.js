@@ -2,6 +2,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import CustomCursor from '@/components/CustomCursor';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata = {
@@ -37,8 +38,9 @@ export const metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/trishul-logo.png',
-    apple: '/trishul-logo.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
@@ -46,6 +48,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -53,8 +58,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-obsidian text-warm-white antialiased font-sans flex flex-col min-h-screen transition-colors duration-300">
+      <body className="bg-obsidian text-warm-white antialiased font-sans flex flex-col min-h-screen transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <CustomCursor />
           <Navbar />
           <main className="flex-grow pt-20">{children}</main>
           <Footer />

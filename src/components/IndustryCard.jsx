@@ -1,5 +1,14 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Building2, Stethoscope, GraduationCap, ShoppingBag, UtensilsCrossed, Briefcase, Wrench, Layers } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const INDUSTRY_ICONS = {
   'real-estate': Building2,
@@ -12,11 +21,48 @@ const INDUSTRY_ICONS = {
   'other': Layers,
 };
 
-export default function IndustryCard({ industry }) {
+export default function IndustryCard({ industry, index = 0 }) {
+  const cardRef = useRef(null);
   const IconComponent = INDUSTRY_ICONS[industry.id] || Building2;
 
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardRef.current,
+        {
+          opacity: 0,
+          y: 40,
+          scale: 0.95,
+          filter: 'blur(8px)',
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          duration: 0.8,
+          delay: (index % 4) * 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: 'top 88%',
+            end: 'bottom 12%',
+            toggleActions: 'restart none none reverse',
+          },
+        }
+      );
+    }, cardRef);
+
+    return () => ctx.revert();
+  }, [index]);
+
   return (
-    <div className="group bg-obsidian-card border border-obsidian-border rounded-2xl p-6 sm:p-8 hover:border-gold/40 hover:bg-obsidian-surface transition-all duration-300 flex flex-col justify-between">
+    <div
+      ref={cardRef}
+      className="group bg-obsidian-card border border-obsidian-border rounded-2xl p-6 sm:p-8 hover:border-gold/40 hover:bg-obsidian-surface transition-all duration-300 flex flex-col justify-between"
+    >
       <div>
         <div className="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold mb-5 group-hover:scale-110 transition-transform">
           <IconComponent className="w-5 h-5" />

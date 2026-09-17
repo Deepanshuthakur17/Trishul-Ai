@@ -1,9 +1,54 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Check, ArrowUpRight } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function PricingCard({ plan }) {
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export default function PricingCard({ plan, index = 0 }) {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardRef.current,
+        {
+          opacity: 0,
+          y: 50,
+          scale: plan.featured ? 0.98 : 0.93,
+          filter: 'blur(8px)',
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: plan.featured ? 1.05 : 1,
+          filter: 'blur(0px)',
+          duration: 0.9,
+          delay: (index % 3) * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: 'top 88%',
+            end: 'bottom 12%',
+            toggleActions: 'restart none none reverse',
+          },
+        }
+      );
+    }, cardRef);
+
+    return () => ctx.revert();
+  }, [index, plan.featured]);
+
   return (
     <div
+      ref={cardRef}
       className={`rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between relative border ${
         plan.featured
           ? 'bg-gradient-to-b from-obsidian-card via-obsidian-card to-obsidian border-gold shadow-gold-glow scale-105 z-10'

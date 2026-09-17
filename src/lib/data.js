@@ -16,9 +16,9 @@ export const THREE_PILLARS = [
     subtitle: "Capture and qualify opportunities.",
     description: "Turn anonymous visitors and cold inquiries into warm, pre-qualified sales appointments before your team even wakes up.",
     items: [
+      "AI Websites & Landing Page Studio",
       "24/7 Multi-channel Lead Capture",
       "Dynamic Lead Qualification",
-      "Instant Automated Follow-ups",
       "Autonomous Sales Workflows"
     ]
   },
@@ -51,6 +51,17 @@ export const THREE_PILLARS = [
 ];
 
 export const SOLUTIONS = [
+  {
+    id: "web-studio",
+    name: "Websites & Landing Pages Studio",
+    tagline: "High-converting, bespoke websites & landing pages built with native AI.",
+    description: "We design and engineer luxury, ultra-fast websites, dynamic landing pages, and interactive sales funnels equipped with integrated Trishul AI employees and instant lead capture engines.",
+    problem: "Generic template websites load slowly, look generic, fail to qualify visitors, and lack interactive AI capabilities.",
+    solution: "Custom obsidian & gold web experiences engineered with Next.js, GSAP animations, responsive typography, and embedded Trishul AI employees for maximum conversion.",
+    workflow: ["Brand & Wireframe Architecture", "Bespoke Next.js & GSAP Engineering", "Trishul Voice/Chat AI Integration", "Conversion & Speed Optimization", "Global CDN Launch"],
+    integrations: ["Next.js", "GSAP & Framer Motion", "Tailwind / Custom CSS", "Vercel / AWS", "Trishul AI Studio", "Google Analytics"],
+    badge: "Acquire"
+  },
   {
     id: "lead-agent",
     name: "Lead Agent",

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { INDUSTRIES } from '@/lib/data';
 import IndustryCard from '@/components/IndustryCard';
+import DetailedWorkflows from '@/components/DetailedWorkflows';
 import GalaxyBackground from '@/components/GalaxyBackground';
 import MetallicButton from '@/components/MetallicButton';
 import { ArrowUpRight, CheckCircle2, Building2, Stethoscope, GraduationCap, ShoppingBag, UtensilsCrossed, Briefcase, Wrench, Layers } from 'lucide-react';
@@ -59,50 +60,8 @@ export default function IndustriesPage() {
             ))}
           </div>
 
-          {/* Deep Dive Industry Use Cases */}
-          <div className="space-y-12 pt-12 border-t border-obsidian-border">
-            <h2 className="text-2xl font-bold font-sans text-warm-white">
-              Detailed Industry Workflows
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-obsidian-card border border-obsidian-border rounded-2xl p-8 space-y-4">
-                <span className="text-xs font-mono text-gold uppercase tracking-wider font-bold">Real Estate Blueprint</span>
-                <h3 className="text-2xl font-bold text-warm-white font-sans">Automated Property Lead Screening</h3>
-                <p className="text-sm text-warm-secondary leading-relaxed">
-                  When a lead inquires about a listing on 99acres, MagicBricks, or Facebook Ads, Trishul instantly messages them on WhatsApp, screens their budget and target possession date, presents 3 matching properties, and schedules a site visit.
-                </p>
-                <div className="text-xs text-gold font-mono pt-2">Result: 0 missed leads, 4x faster site visit bookings.</div>
-              </div>
-
-              <div className="bg-obsidian-card border border-obsidian-border rounded-2xl p-8 space-y-4">
-                <span className="text-xs font-mono text-gold uppercase tracking-wider font-bold">Healthcare Blueprint</span>
-                <h3 className="text-2xl font-bold text-warm-white font-sans">24/7 Patient Intake & Scheduling</h3>
-                <p className="text-sm text-warm-secondary leading-relaxed">
-                  Trishul Voice & WhatsApp agents handle routine appointment queries, patient intake pre-screening, doctor availability checks, and automated appointment confirmations without front desk burnout.
-                </p>
-                <div className="text-xs text-gold font-mono pt-2">Result: 60% reduction in missed consultation slots.</div>
-              </div>
-
-              <div className="bg-obsidian-card border border-obsidian-border rounded-2xl p-8 space-y-4">
-                <span className="text-xs font-mono text-gold uppercase tracking-wider font-bold">E-Commerce Blueprint</span>
-                <h3 className="text-2xl font-bold text-warm-white font-sans">WISMO & Product Recommendation AI</h3>
-                <p className="text-sm text-warm-secondary leading-relaxed">
-                  Directly connected to Shopify, Trishul handles 80%+ of "Where is my order?" inquiries instantly over WhatsApp and web chat while recommending cross-sell products based on cart history.
-                </p>
-                <div className="text-xs text-gold font-mono pt-2">Result: 80% decrease in support tickets during sales.</div>
-              </div>
-
-              <div className="bg-obsidian-card border border-obsidian-border rounded-2xl p-8 space-y-4">
-                <span className="text-xs font-mono text-gold uppercase tracking-wider font-bold">Professional Services Blueprint</span>
-                <h3 className="text-2xl font-bold text-warm-white font-sans">High-Intent Client Discovery Screening</h3>
-                <p className="text-sm text-warm-secondary leading-relaxed">
-                  Before booking a consultation with legal or accounting partners, Trishul collects scope parameters, budget thresholds, and urgency metrics to ensure partner time is reserved for high-value contracts.
-                </p>
-                <div className="text-xs text-gold font-mono pt-2">Result: Eliminate un-qualified discovery calls completely.</div>
-              </div>
-            </div>
-          </div>
+          {/* Deep Dive Industry Use Cases with GSAP Animations */}
+          <DetailedWorkflows />
         </section>
 
         {/* CTA */}

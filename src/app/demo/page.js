@@ -1,12 +1,13 @@
 import SectionHeading from '@/components/SectionHeading';
 import InteractiveDemo from '@/components/InteractiveDemo';
+import TrishulVoiceAgent from '@/components/TrishulVoiceAgent';
 import GalaxyBackground from '@/components/GalaxyBackground';
 import MetallicButton from '@/components/MetallicButton';
 import { Bot, Zap, Sparkles } from 'lucide-react';
 
 export const metadata = {
-  title: 'Interactive AI Demo — Trishul AI Employee Simulator',
-  description: 'Experience live simulated AI employees for lead qualification, customer support, WhatsApp, and appointment booking.',
+  title: 'Interactive AI Demo — Trishul AI Voice Agent & Employee Simulator',
+  description: 'Experience live Trishul AI voice consultant and simulated AI employees for lead qualification, customer support, and appointment booking.',
 };
 
 export default function DemoPage() {
@@ -35,7 +36,7 @@ export default function DemoPage() {
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-6">
           <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.25em] text-gold font-mono font-semibold bg-gold/10 px-4 py-1.5 rounded-full border border-gold/20 shadow-gold-glow">
-            <span>LIVE INTERACTIVE SIMULATION</span>
+            <span>LIVE INTERACTIVE DEMO & VOICE AGENT</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-warm-white leading-tight font-sans">
             See what an AI employee{' '}
@@ -44,15 +45,27 @@ export default function DemoPage() {
             </span>
           </h1>
           <p className="text-warm-secondary text-lg leading-relaxed max-w-2xl mx-auto">
-            Test real-time conversation flows, logic guardrails, automated action triggers, and CRM sync steps in our sandbox environment.
+            Talk directly with our live voice agent or test simulated conversation flows, logic guardrails, automated action triggers, and CRM sync steps.
           </p>
         </div>
       </section>
 
       <div className="px-6 sm:px-8 max-w-7xl mx-auto space-y-20">
-        {/* Main Interactive Demo Unit */}
+        {/* Live ElevenLabs Conversational Voice Agent */}
+        <section className="pt-2">
+          <TrishulVoiceAgent />
+        </section>
+
+        {/* Main Interactive Text Demo Unit */}
         <section className="pt-4">
-          <InteractiveDemo />
+          <SectionHeading
+            badge="WORKFLOW SANDBOX"
+            title="Explore Automated Workflow Simulators"
+            description="Test interactive text scenarios for lead capture, support, WhatsApp, and automated calendar scheduling."
+          />
+          <div className="mt-8">
+            <InteractiveDemo />
+          </div>
         </section>
 
         {/* Capability Feature Highlights */}

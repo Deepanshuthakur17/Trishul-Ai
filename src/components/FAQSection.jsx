@@ -1,25 +1,69 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FAQS } from '@/lib/data';
 import { Plus, Minus } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const items = containerRef.current.querySelectorAll('.faq-item');
+
+      items.forEach((item, idx) => {
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
+            y: 35,
+            scale: 0.96,
+            filter: 'blur(6px)',
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            duration: 0.75,
+            delay: idx * 0.08,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 88%',
+              end: 'bottom 12%',
+              toggleActions: 'restart none none reverse',
+            },
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const toggle = (idx) => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-4">
+    <div ref={containerRef} className="max-w-4xl mx-auto space-y-4">
       {FAQS.map((faq, idx) => {
         const isOpen = openIndex === idx;
 
         return (
           <div
             key={idx}
-            className="bg-obsidian-card border border-obsidian-border rounded-2xl overflow-hidden transition-colors"
+            className="faq-item bg-obsidian-card border border-obsidian-border rounded-2xl overflow-hidden transition-colors hover:border-gold/30"
           >
             <button
               onClick={() => toggle(idx)}

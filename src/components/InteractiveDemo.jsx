@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Send, Bot, User, Sparkles, RefreshCw } from 'lucide-react';
+import MetallicButton from '@/components/MetallicButton';
 
 const PRESET_OPTIONS = [
   { id: 'leads', label: 'Get more leads', prompt: 'I want to automate lead capture and qualification for my website.' },
@@ -279,19 +280,23 @@ export default function InteractiveDemo() {
       {/* Input Bar */}
       <form onSubmit={handleCustomSubmit} className="p-4 bg-obsidian-surface border-t border-obsidian-border flex items-center gap-3">
         <input
+          id="demo-prompt-input"
+          name="demoPrompt"
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Ask Trishul anything about your business workflow..."
           className="flex-1 bg-obsidian border border-obsidian-border rounded-xl px-4 py-3 text-sm text-warm-white focus:outline-none focus:border-gold/50 transition-colors placeholder:text-warm-muted font-sans"
         />
-        <button
+        <MetallicButton
           type="submit"
-          className="px-5 py-3 rounded-xl bg-gold text-obsidian font-medium text-sm hover:bg-gold-light transition-all flex items-center space-x-2 shrink-0 shadow-gold-glow"
+          variant="gold"
+          icon={false}
+          className="!px-6 !py-3 !rounded-xl shrink-0 text-sm"
         >
           <span>Send</span>
           <Send className="w-4 h-4" />
-        </button>
+        </MetallicButton>
       </form>
     </div>
   );
