@@ -72,52 +72,52 @@ export default function HeroSystemVisual() {
         {/* System Pipeline Diagram */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 my-8 relative items-center">
           {/* Step 1: Customer */}
-          <div className="bg-obsidian-surface border border-obsidian-border p-4 rounded-xl flex flex-col justify-between min-h-[140px] relative group hover:border-gold/30 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono uppercase text-warm-muted tracking-wider">01 • INBOUND</span>
+          <div className="bg-obsidian-surface border border-obsidian-border p-5 sm:p-6 rounded-xl flex flex-col justify-between min-h-[220px] relative group hover:border-gold/30 transition-colors">
+            <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
+              <span className="text-[10px] font-mono uppercase text-warm-muted tracking-wider font-semibold">01 • INBOUND</span>
               <User className="w-4 h-4 text-warm-secondary" />
             </div>
-            <div>
-              <div className="text-xs font-bold text-warm-white truncate">{stream.customer}</div>
-              <div className="text-[11px] text-warm-muted truncate mt-0.5">{stream.channel}</div>
+            <div className="space-y-1">
+              <div className="text-sm font-bold text-warm-white">{stream.customer}</div>
+              <div className="text-xs text-gold/80 font-mono font-medium">{stream.channel}</div>
             </div>
-            <div className="text-[11px] text-warm-secondary bg-obsidian/60 p-2 rounded border border-white/5 line-clamp-2">
+            <div className="text-xs text-warm-secondary bg-obsidian/70 p-3 rounded-lg border border-white/5 leading-relaxed mt-3 font-sans">
               "{stream.input}"
             </div>
           </div>
 
           <div className="hidden md:flex justify-center text-gold/50">
-            <ArrowRight className="w-5 h-5 animate-pulse" />
+            <ArrowRight className="w-6 h-6 animate-pulse" />
           </div>
 
           {/* Step 2: Trishul Core Engine */}
-          <div className="bg-gradient-to-b from-obsidian-surface to-obsidian border border-gold/40 p-5 rounded-xl flex flex-col items-center justify-center min-h-[180px] relative shadow-gold-glow text-center">
-            <div className="w-16 h-16 relative mb-2 animate-float">
+          <div className="bg-gradient-to-b from-obsidian-surface to-obsidian border border-gold/40 p-6 rounded-xl flex flex-col items-center justify-center min-h-[220px] relative shadow-gold-glow text-center">
+            <div className="w-16 h-16 relative mb-3 animate-float">
               <Image src="/trishul-logo.png" alt="Trishul Core" fill className="object-contain" />
             </div>
-            <span className="text-xs font-bold tracking-widest text-warm-white uppercase">TRISHUL AI</span>
-            <span className="text-[10px] font-mono text-gold mt-1">Autonomous Engine</span>
-            <div className="mt-2 flex items-center space-x-1 text-[9px] font-mono text-warm-muted">
-              <ShieldCheck className="w-3 h-3 text-gold" />
+            <span className="text-sm font-bold tracking-widest text-warm-white uppercase font-sans">TRISHUL AI</span>
+            <span className="text-xs font-mono text-gold mt-1 font-semibold">Autonomous Engine</span>
+            <div className="mt-3 flex items-center space-x-1.5 text-[10px] font-mono text-warm-muted bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
+              <ShieldCheck className="w-3.5 h-3.5 text-gold" />
               <span>Guardrails Active</span>
             </div>
           </div>
 
           <div className="hidden md:flex justify-center text-gold/50">
-            <ArrowRight className="w-5 h-5 animate-pulse" />
+            <ArrowRight className="w-6 h-6 animate-pulse" />
           </div>
 
           {/* Step 3: Acts & Workflow Output */}
-          <div className="bg-obsidian-surface border border-obsidian-border p-4 rounded-xl flex flex-col justify-between min-h-[140px] relative group hover:border-gold/30 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono uppercase text-gold tracking-wider">02 • EXECUTION</span>
+          <div className="bg-obsidian-surface border border-obsidian-border p-5 sm:p-6 rounded-xl flex flex-col justify-between min-h-[220px] relative group hover:border-gold/30 transition-colors">
+            <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
+              <span className="text-[10px] font-mono uppercase text-gold tracking-wider font-semibold">02 • EXECUTION</span>
               <CheckCircle2 className="w-4 h-4 text-gold" />
             </div>
-            <div>
-              <div className="text-xs font-bold text-warm-white truncate">{stream.intent}</div>
-              <div className="text-[11px] text-warm-secondary truncate mt-0.5">{stream.action}</div>
+            <div className="space-y-1">
+              <div className="text-sm font-bold text-warm-white">{stream.intent}</div>
+              <div className="text-xs text-warm-secondary leading-normal">{stream.action}</div>
             </div>
-            <div className="text-[11px] text-gold font-mono bg-gold/5 p-2 rounded border border-gold/20 truncate">
+            <div className="text-xs text-gold font-mono bg-gold/10 p-3 rounded-lg border border-gold/25 font-semibold mt-3 leading-relaxed">
               ✓ {stream.output}
             </div>
           </div>
